@@ -37,3 +37,8 @@ date || credit || debit || balance
 
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
 
+Deposit --> (balance - amount) + it cannot be less than 0
+Withdrawal --> (balance + amount)
+Print Account Statement(date, amount, balance) --> every time I deposit or withdrawal I save the data into a variable
+Data can be keep in memory
+
