@@ -19,7 +19,7 @@ Below an example of the Statement of the user's bank account
 
 # How to run the tests
 1. Clone this repo
-2. Run ```bundle install`` in the terminal
+2. Run ```bundle install``` in the terminal
 3. Run ```rspec```
 
 # User Stories
