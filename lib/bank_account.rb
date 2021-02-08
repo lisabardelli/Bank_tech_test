@@ -5,7 +5,6 @@ class BankAccount
   def initialize
     @balance = 0
     @statement = []
-    @transaction = { date: nil, credit: nil, debit: nil, balance: 0 }
   end
 
   def deposit(cash_amount, date)
@@ -14,7 +13,7 @@ class BankAccount
     end
 
     transaction = Transaction.new(cash_amount, date)
-    @statement << "#{@transaction[:date] = transaction.date}|| #{@transaction[:credit] = transaction.cash_amount.to_f} || || #{@transaction[:balance] = (@balance + transaction.cash_amount).to_f}"
+    @statement << "#{transaction.date}|| #{transaction.cash_amount.to_f} || || #{(@balance + transaction.cash_amount).to_f}"
     @date = date
     @balance += transaction.cash_amount
   end
@@ -22,10 +21,11 @@ class BankAccount
   def withdrawal(cash_amount, date)
     transaction = Transaction.new(cash_amount, date)
     raise 'Insufficient funds' if (@balance - transaction.cash_amount).negative?
-    @statement << "#{@transaction[:date] = transaction.date} || || #{@transaction[:debit] = transaction.cash_amount.to_f} || #{@transaction[:balance] = (@balance - transaction.cash_amount).to_f}"
+    @statement << "#{transaction.date} || || #{transaction.cash_amount.to_f} || #{(@balance - transaction.cash_amount).to_f}"
     @balance -= transaction.cash_amount
   end
 
+  
   def print_statement
     p 'Statement of Account'.center(60)
     p '----------------------------------'.center(60)

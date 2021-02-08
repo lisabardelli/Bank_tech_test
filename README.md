@@ -43,6 +43,10 @@ I would like to print a statement of account which includes the balance of the b
 
 ```
 
+# Approch 
+
+I have satisied all the User Stories with the class BankAccount
+
 # Bank_tech_test
 
 Today, you'll practice doing a tech test.
