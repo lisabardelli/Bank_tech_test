@@ -30,11 +30,12 @@ class BankAccount
     p 'date || credit || debit || balance'.center(60)
     temp_balance = 0
     @transactions.each do |transaction|
-      temp_balance += transaction.cash_amount.to_f
+      temp_balance += transaction.cash_amount
       if transaction.cash_amount.positive?
-        row = "#{transaction.date}|| #{transaction.cash_amount.to_f} || || #{temp_balance}"
+        row = "#{transaction.date}|| #{'%.2f' % transaction.cash_amount.to_f} || || #{'%.2f' % temp_balance}"
       else
-        row = "#{transaction.date} || || #{(-1 * transaction.cash_amount.to_f)} || #{temp_balance}"
+
+        row = "#{transaction.date} || || #{format('%.2f', (-1 * transaction.cash_amount.to_f))} || #{'%.2f' % temp_balance}"
       end
       p row.center(60)
     end
