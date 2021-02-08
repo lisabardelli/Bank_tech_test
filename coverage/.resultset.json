@@ -3,17 +3,18 @@
     "coverage": {
       "/Users/lisa/Desktop/Projects/Week10/Bank_tech_test/spec/bank_account_spec.rb": {
         "lines": [
-          1,
+          null,
           null,
           1,
           null,
+          1,
           1,
           8,
           null,
           null,
           1,
           1,
-          null,
+          1,
           null,
           1,
           1,
@@ -31,7 +32,6 @@
           null,
           null,
           null,
-          null,
           1,
           1,
           1,
@@ -44,6 +44,7 @@
           1,
           null,
           null,
+          null,
           1,
           1,
           1,
@@ -53,14 +54,12 @@
           null,
           1,
           1,
-          null,
-          null,
           null,
           null,
           null
         ]
       },
-      "/Users/lisa/Desktop/Projects/Week10/Bank_tech_test/lib/bank_account.rb": {
+      "/Users/lisa/Desktop/Projects/Week10/Bank_tech_test/lib/Bank_account.rb": {
         "lines": [
           null,
           null,
@@ -74,13 +73,13 @@
           null,
           1,
           5,
-          4,
-          4,
-          4,
-          4,
-          null,
           1,
           null,
+          null,
+          4,
+          4,
+          4,
+          4,
           null,
           null,
           1,
@@ -117,6 +116,8 @@
       },
       "/Users/lisa/Desktop/Projects/Week10/Bank_tech_test/lib/transaction.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -127,6 +128,6 @@
         ]
       }
     },
-    "timestamp": 1612799840
+    "timestamp": 1612801543
   }
 }

@@ -1,5 +1,47 @@
+# How to run the program
+
+1. Clone this repo
+2. Run IRB on you terminal
+3. Require the files ```require './lib/bank_account.rb'``` and ```require './lib/transaction.rb'```
+4. Run the commands written in the file ```'./lib/main.rb'```
+
+# How your program works
+
+The program allows the user to manage his/her bank account. It means that the user can deposit/withdrawal cash into/from the bank account and print a statement of the account which includes the following info:
+```date || credit || debit || balance```
+Error message will be raised if the user tries to withdrawal an amount of money bigger than the actual balance and or deposit a negative amount of cash.
+
+Below an example of the Statement of the user's bank account
+
+![Image of statement](https://i.ibb.co/gdFxpd2/Statement.png)
+
+# How to run the tests
+1. Clone this repo
+2. Run ```bundle install`` in the terminal
+3. Run ```rspec```
+
+# User Stories
+
+```
+As a user,
+so that I can have cash on my bank account
+I would like to deposit cash.
+
+As a user,
+so that I can spend my money
+I would like to withdraw cash from my bank account.
+
+As a user,
+so that I can see when I spent my money
+I would like to print a statement of account that includes the date the deposit/withdrawal has been made.
+
+As a user,
+so that  know how much left on my bank account
+I would like to print a statement of account which includes the balance of the bank account.
+
+```
+
 # Bank_tech_test
-# Bank tech test
 
 Today, you'll practice doing a tech test.
 
