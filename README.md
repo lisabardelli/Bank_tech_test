@@ -5,7 +5,7 @@
 3. Require the files ```require './lib/bank_account.rb'``` and ```require './lib/transaction.rb'```
 4. Run the commands written in the file ```'./lib/main.rb'```
 
-# How your program works
+# How the program works
 
 The program allows the user to manage his/her bank account. It means that the user can deposit/withdrawal cash into/from the bank account and print a statement of the account which includes the following info:
 
