@@ -2,8 +2,8 @@
 
 class Transaction
   attr_reader :date, :cash_amount
-  def initialize(cash_amount, date = Time.new.strftime('%d/%m/%Y'))
+  def initialize(cash_amount)
     @cash_amount = cash_amount
-    @date = date
+    @date = Time.new.strftime('%d/%m/%Y')
   end
 end

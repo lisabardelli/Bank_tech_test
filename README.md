@@ -50,7 +50,13 @@ I have satisfied all the user stories. Originally I built the program using one 
 
 Then I extracted the transaction element in a different class to make everything more robust, testable and redable.
 
+## BankAccount Responsabilities
 
+Deposit, Withdraw, Print_statement and Keep Track of the transaction
+
+## Transaction Responsability
+
+Create an Object
 
 # Bank_tech_test
 
