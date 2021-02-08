@@ -8,7 +8,9 @@
 # How your program works
 
 The program allows the user to manage his/her bank account. It means that the user can deposit/withdrawal cash into/from the bank account and print a statement of the account which includes the following info:
+
 ```date || credit || debit || balance```
+
 Error message will be raised if the user tries to withdrawal an amount of money bigger than the actual balance and or deposit a negative amount of cash.
 
 Below an example of the Statement of the user's bank account
