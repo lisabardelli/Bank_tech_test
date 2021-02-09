@@ -53,11 +53,15 @@ Then I extracted the transaction and statement elements in a different class to 
 
 ## BankAccount Responsabilities
 
-Deposit, Withdraw, Print_statement and Keep Track of the transaction
+Deposit, Withdraw and Print_statement
 
 ## Transaction Responsability
 
 Create an Object
+
+## Statement Responsability
+
+Keep Track of the transactions
 
 # Bank_tech_test
 
