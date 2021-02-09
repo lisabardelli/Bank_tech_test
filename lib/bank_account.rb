@@ -12,13 +12,13 @@ class BankAccount
   end
 
   def deposit(cash_amount)
-    raise 'Cash amount cannot be negative' if cash_amount.negative?
+    check_amount(cash_amount)
 
     create_transaction(cash_amount.to_f)
   end
 
   def withdraw(cash_amount)
-    raise 'Cash amount cannot be negative' if cash_amount.negative?
+    check_amount(cash_amount)
     raise 'Insufficient funds' if (@balance - cash_amount).negative?
 
     create_transaction((-1 * cash_amount.to_f))
@@ -29,6 +29,10 @@ class BankAccount
   end
 
   private
+
+  def check_amount(cash_amount)
+    raise 'Cash amount cannot be negative' if cash_amount.negative?
+  end
 
   def create_transaction(cash_amount)
     transaction = Transaction.new(cash_amount)
