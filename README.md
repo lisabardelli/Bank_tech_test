@@ -49,7 +49,7 @@ The program has been made with a test-driven approach.
 
 I have satisfied all the user stories. Originally I built the program using one class (BankAccount) where all the functionalities were implemented.
 
-Then I extracted the transaction element in a different class to make everything more robust, testable and redable.
+Then I extracted the transaction and statement elements in a different class to make everything more robust, testable and redable.
 
 ## BankAccount Responsabilities
 
