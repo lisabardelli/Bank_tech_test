@@ -2,6 +2,7 @@
 
 class BankAccount
   attr_reader :balance, :transactions
+  HEADER = 'date || credit || debit || balance' 
   def initialize
     @balance = 0
     @transactions = []
@@ -19,17 +20,18 @@ class BankAccount
   end
 
   def print_statement()
-    p 'date || credit || debit || balance'
     temp_balance = 0
+
+    string = HEADER + "\n"
     transactions.each do |transaction|
-      temp_balance += transaction.cash_amount
+      temp_balance += transaction.cash_amount 
       if transaction.cash_amount.positive?
-        row = "#{transaction.date}|| #{format('%.2f', transaction.cash_amount)} || || #{format('%.2f', temp_balance)}"
+        string = string + "#{transaction.date}|| #{format('%.2f', transaction.cash_amount)} || || #{format('%.2f', temp_balance)}"+"\n"
       else
-        row = "#{transaction.date} || || #{format('%.2f', (-1 * transaction.cash_amount))} || #{format('%.2f', temp_balance)}"
+        string = string + "#{transaction.date} || || #{format('%.2f', (-1 * transaction.cash_amount))} || #{format('%.2f', temp_balance)}" + "\n"
       end
-      p row
     end
+     puts string
   end 
   private
 

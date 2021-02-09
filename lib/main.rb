@@ -12,4 +12,3 @@ bank_account.deposit(50)
 bank_account.withdraw(-20)
 bank_account.print_statement
 
-
