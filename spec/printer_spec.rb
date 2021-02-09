@@ -12,19 +12,19 @@ describe 'Printer' do
       allow(account).to receive(:deposit).with(100).and_return(100)
       expect(@printer.print_body(account)).to include { date :Time.new.strftime('%d/%m/%Y'), credit: 100, debit: '', balance: 100 }
     end
-    it 'prints an header' do
-      expect(@printer.print_header).to include { 'Statement of Account' }
-    end
+    # it 'prints the header' do
+    #   expect(@printer.print_header).to include { 'Statement of Account' }
+    # end
     it 'prints the statement' do
       allow(account).to receive(:deposit).with(100).and_return(100)
       allow(account).to receive(:withdraw).with(-50).and_return(-50)
       expect(@printer.print_body(account)).to include {
-                                                date :Time.new.strftime('%d/%m/%Y'), credit: 100, temp_balance: 100
-                                                date :Time.new.strftime('%d/%m/%Y'), debit: 50, temp_balance: 50
+                                                date :Time.new.strftime('%d/%m/%Y'), credit: 100, debit: '', balance: 100
+                                                date :Time.new.strftime('%d/%m/%Y'), credit: '', debit: 50, balance: 50
                                               }
     end
-    it 'prints footer' do
-      expect(@printer.print_footer).to eq ' End of statement'.center(60)
-    end
+    # it 'prints the footer' do
+    #   expect(@printer.print_footer).to eq ( 'End of statement'.center(60)  )
+    # end
   end
 end
