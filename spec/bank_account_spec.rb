@@ -42,24 +42,15 @@ describe 'BankAccount' do
   end
 
   describe '#print_statement' do
-    it 'prints a statement of the account with cash amount, date and balance' do
+    it 'prints a statement of the account when a deposit is done' do
+      @account.deposit(200)
+     expect{@account.print_statement}.to output("\"date || credit || debit || balance\"\n\"09/02/2021|| 200.00 || || 200.00\"\n").to_stdout
+    end
+    it 'prints a statement of the account when a deposit/withdrawail are done' do
       @account.deposit(200)
       @account.withdraw(-100)
-      expect(@account.transactions).to include { date:Time.new.strftime('%d/%m/%Y'), credit: 200, debit: '', balance: 200 }
-      expect(@account.transactions).to include { date:Time.new.strftime('%d/%m/%Y'), credit: '', debit: 100, balance: 100 }
+     expect{@account.print_statement}.to output("\"date || credit || debit || balance\"\n\"09/02/2021|| 200.00 || || 200.00\"\n\"09/02/2021 || || 100.00 || 100.00\"\n").to_stdout
     end
-    it 'prints an header' do
-      expect(@account.print_statement).to include { 'Statement of Account' }
-    end
-    it 'prints the statement' do
-        @account.deposit(200)
-        @account.withdraw(-100)
-
-        expect(@account.print_statement).to include {'Statement of Account'
-             date:Time.new.strftime('%d/%m/%Y'), credit: 200, debit: '', balance: 200
-             date:Time.new.strftime('%d/%m/%Y'), credit: '', debit: 100, balance: 100 
-             'End of statement'
-             }
-        end
+   
   end
 end
