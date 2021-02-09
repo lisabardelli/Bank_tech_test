@@ -9,18 +9,14 @@ class BankAccount
   end
 
   def deposit(cash_amount)
-    if cash_amount.negative?
-      raise 'Cash to be deposited cannot be a negative amount'
-    end
-    create_transaction(cash_amount)
+    raise 'Cash amount cannot be negative' if cash_amount.negative?
+    create_transaction(cash_amount.to_f)
   end
 
   def withdraw(cash_amount)
-    if cash_amount.positive?
-      raise 'You selected withdraw with a positive amount of cash. Please insert a negative amount'
-    end
-    raise 'Insufficient funds' if (@balance + cash_amount).negative?
-    create_transaction(cash_amount)
+    raise 'Cash amount cannot be negative' if cash_amount.negative?
+    raise 'Insufficient funds' if (@balance - cash_amount).negative?
+    create_transaction((-1 * cash_amount.to_f))
   end
 
   def print_statement
@@ -28,9 +24,12 @@ class BankAccount
     statement = HEADER + "\n"
     transactions.each do |transaction|
       temp_balance += transaction.cash_amount
-        statement = statement + "#{transaction.date}|| #{format('%.2f', transaction.cash_amount)} || || #{format('%.2f', temp_balance)}" + "\n" if transaction.cash_amount.positive?
-        statement = statement + "#{transaction.date} || || #{format('%.2f', (-1 * transaction.cash_amount))} || #{format('%.2f', temp_balance)}" + "\n" if !transaction.cash_amount.positive?
+      if transaction.cash_amount.positive?
+        statement += "#{transaction.date}|| #{format('%.2f', transaction.cash_amount)} || || #{format('%.2f', temp_balance)}" + "\n"
+      else
+        statement += "#{transaction.date} || || #{format('%.2f', (-1 * transaction.cash_amount))} || #{format('%.2f', temp_balance)}" + "\n"
       end
+    end
     puts statement
   end
 
