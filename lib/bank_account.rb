@@ -18,6 +18,19 @@ class BankAccount
     create_transaction(cash_amount)
   end
 
+  def print_statement()
+    p 'date || credit || debit || balance'
+    temp_balance = 0
+    transactions.each do |transaction|
+      temp_balance += transaction.cash_amount
+      if transaction.cash_amount.positive?
+        row = "#{transaction.date}|| #{format('%.2f', transaction.cash_amount)} || || #{format('%.2f', temp_balance)}"
+      else
+        row = "#{transaction.date} || || #{format('%.2f', (-1 * transaction.cash_amount))} || #{format('%.2f', temp_balance)}"
+      end
+      p row
+    end
+  end 
   private
 
   def create_transaction(cash_amount)

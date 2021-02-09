@@ -41,5 +41,25 @@ describe 'BankAccount' do
       end
   end
 
+  describe '#print_statement' do
+    it 'prints a statement of the account with cash amount, date and balance' do
+      @account.deposit(200)
+      @account.withdraw(-100)
+      expect(@account.transactions).to include { date:Time.new.strftime('%d/%m/%Y'), credit: 200, debit: '', balance: 200 }
+      expect(@account.transactions).to include { date:Time.new.strftime('%d/%m/%Y'), credit: '', debit: 100, balance: 100 }
+    end
+    it 'prints an header' do
+      expect(@account.print_statement).to include { 'Statement of Account' }
+    end
+    it 'prints the statement' do
+        @account.deposit(200)
+        @account.withdraw(-100)
 
+        expect(@account.print_statement).to include {'Statement of Account'
+             date:Time.new.strftime('%d/%m/%Y'), credit: 200, debit: '', balance: 200
+             date:Time.new.strftime('%d/%m/%Y'), credit: '', debit: 100, balance: 100 
+             'End of statement'
+             }
+        end
+  end
 end
