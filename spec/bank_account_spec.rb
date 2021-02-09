@@ -46,7 +46,7 @@ describe 'BankAccount' do
       @account.deposit(200)
      expect{@account.print_statement}.to output("date || credit || debit || balance"+ "\n" + "09/02/2021|| 200.00 || || 200.00"+ "\n").to_stdout
     end
-    it 'prints a statement of the account when a deposit/withdrawail are done' do
+    it 'prints a statement of the account when  deposit + withdrawail are done' do
       @account.deposit(200)
       @account.withdraw(-100)
      expect{@account.print_statement}.to output("date || credit || debit || balance"+ "\n" + "09/02/2021|| 200.00 || || 200.00"+ "\n" + "09/02/2021 || || 100.00 || 100.00" + "\n").to_stdout
