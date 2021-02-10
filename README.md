@@ -15,7 +15,7 @@ Error message will be raised if the user tries to withdrawal an amount of money 
 
 Below an example of the Statement of the user's bank account
 
-![Image of statement](https://i.ibb.co/hMQDRyK/Statement.png)
+![Image of statement](https://i.ibb.co/yPcSqjc/Statement.png)
 
 
 # How to run the tests
