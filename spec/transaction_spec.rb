@@ -1,7 +1,10 @@
-require "transaction"
+# frozen_string_literal: true
 
-describe "Transaction" do
-    it "instantiates the class with 2 arguments" do
-    expect(Transaction.new(10)).to be_an_instance_of Transaction
-    end 
+require 'transaction'
+
+describe 'Transaction' do
+  let(:cash_amount) { 10 }
+  it 'instantiates the class with 2 arguments' do
+    expect(Transaction.new(cash_amount)).to be_an_instance_of Transaction
+  end
 end

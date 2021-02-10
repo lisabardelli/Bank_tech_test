@@ -37,21 +37,22 @@ describe 'BankAccount' do
       expect(@account.balance).to eq 100
     end
     it 'raises an error if withdrawal has a negative cash amount' do
-        expect { @account.withdraw(-100) }.to raise_error 'Cash amount cannot be negative'
-      end
+      expect { @account.withdraw(-100) }.to raise_error 'Cash amount cannot be negative'
+    end
   end
 
   describe '#print_statement' do
-    let (:today_date) { Time.new.strftime("%d/%m/%Y")}
+    let (:today_date) { Time.new.strftime('%d/%m/%Y') }
     it 'prints a statement of the account when a deposit is done' do
       @account.deposit(200)
-     expect{@account.print_statement}.to output("date || credit || debit || balance"+ "\n" + "#{today_date}|| 200.00 || || 200.00"+ "\n").to_stdout
+      expect { @account.print_statement }.to output('date || credit || debit || balance' + "\n" + "#{today_date}|| 200.00 || || 200.00" + "\n").to_stdout
     end
-    it 'prints a statement of the account when  deposit + withdrawail are done' do
-      @account.deposit(200)
-      @account.withdraw(100)
-     expect{@account.print_statement}.to output("date || credit || debit || balance"+ "\n" + "#{today_date}|| 200.00 || || 200.00"+ "\n" + "#{today_date} || || 100.00 || 100.00" + "\n").to_stdout
+    it 'prints a statement of account in reverse-chronological order' do
+      date1 = Time.new(2021, 2, 8)
+      date2 = Time.new(2021, 2, 10)
+      @account.deposit(200, date1)
+      @account.withdraw(100, date2)
+      expect { @account.print_statement }.to output('date || credit || debit || balance' + "\n" + "#{date2.strftime('%d/%m/%Y')} || || 100.00 || 100.00" + "\n" + "#{date1.strftime('%d/%m/%Y')}|| 200.00 || || 200.00" + "\n").to_stdout
     end
-   
   end
 end

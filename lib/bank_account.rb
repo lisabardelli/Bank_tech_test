@@ -11,21 +11,21 @@ class BankAccount
     @statement = Statement.new
   end
 
-  def deposit(cash_amount)
+  def deposit(cash_amount, date = Time.new)
     check_amount(cash_amount)
 
-    create_transaction(cash_amount.to_f)
+    create_transaction(cash_amount.to_f, date)
   end
 
-  def withdraw(cash_amount)
+  def withdraw(cash_amount, date = Time.new)
     check_amount(cash_amount)
     raise 'Insufficient funds' if (@balance - cash_amount).negative?
 
-    create_transaction((-1 * cash_amount.to_f))
+    create_transaction((-1 * cash_amount.to_f), date)
   end
 
   def print_statement
-    @statement.print_statement
+    @statement.print_statement(@transactions, @balance)
   end
 
   private
@@ -34,10 +34,9 @@ class BankAccount
     raise 'Cash amount cannot be negative' if cash_amount.negative?
   end
 
-  def create_transaction(cash_amount)
-    transaction = Transaction.new(cash_amount)
-    @transactions << transaction
+  def create_transaction(cash_amount, date)
+    transaction = Transaction.new(cash_amount, date)
+    @transactions.insert(0, transaction)
     @balance += cash_amount
-    @statement.append_transaction(transaction, @balance)
   end
 end
